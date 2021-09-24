@@ -3,3 +3,8 @@ gunicorn
 flask
 pandas
 numpy
+
+psycopg2
+netCDF4==1.5.3
+scipy==1.2.3
+

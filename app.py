@@ -8,10 +8,8 @@ except ImportError:
     import dash_core_components as dcc
 from dash.dependencies import Input, Output
 import plotly.express as px
-import pandas as pd
-import numpy as np
 
-# from ws_request_luncher import get_data
+from ws_request_luncher import get_data
 
 server = Flask(__name__)
 
@@ -30,7 +28,7 @@ app.layout = html.Div(children=[
     Output('graph-time-series', 'figure'),
     Input('apply-button','n_clicks'))
 def update_graph(n_clicks):
-    df = get_data()
+    df = get_data()['data_pandas']
     # N = np.random.randint(10,1000)
     # rng = pd.date_range('2019-01-01', freq='MS', periods=N)
     # df = pd.DataFrame(np.random.rand(N, 3), columns=['temp', 'depth', 'acceleration'], index=rng)

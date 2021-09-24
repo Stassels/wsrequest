@@ -47,10 +47,11 @@ def request_dict_init():
     return request_dict
 
 
+
 def get_data():
 
-    latitude = 49.258839
-    longitude = 19.968625
+    latitude = 35.3567
+    longitude = 64.90977
 
     request_dict = request_dict_init()
 
@@ -63,11 +64,17 @@ def get_data():
 
     request_dict['lat'] = latitude
     request_dict['lng'] = longitude
-    request_dict['timeZone'] = 'UTC+1'
-    response_dict = res2csv_DataServices.processRequest_RequestDictType(request_dict, allow_forecast=allow_forecast,
-                                                                        allow_backward_forecast=allow_backward_forecast,
-                                                                        allow_backward_nowcast=allow_backward_nowcast,
+    request_dict['timeZone'] = 'UTC+4'
+    response_dict = res2csv_DataServices.processRequest_RequestDictType(request_dict, allow_forecast=allow$
+                                                                        allow_backward_forecast=allow_back$
+                                                                        allow_backward_nowcast=allow_backw$
                                                                         outputformat='pandas')
     return response_dict
+
+
+if __name__ == '__main__':
+    df = get_data()['data_pandas']
+    print(df)
+
 
 
