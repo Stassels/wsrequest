@@ -65,9 +65,9 @@ def get_data():
     request_dict['lat'] = latitude
     request_dict['lng'] = longitude
     request_dict['timeZone'] = 'UTC+4'
-    response_dict = res2csv_DataServices.processRequest_RequestDictType(request_dict, allow_forecast=allow$
-                                                                        allow_backward_forecast=allow_back$
-                                                                        allow_backward_nowcast=allow_backw$
+    response_dict = res2csv_DataServices.processRequest_RequestDictType(request_dict, allow_forecast=allow_forecast,
+                                                                        allow_backward_forecast=allow_backward_forecast,
+                                                                        allow_backward_nowcast=allow_backward_nowcast,
                                                                         outputformat='pandas')
     return response_dict
 
