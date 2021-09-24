@@ -7,6 +7,7 @@ import plotly.express as px
 import pandas as pd
 import numpy as np
 
+from ws_request_luncher import get_data
 
 server = Flask(__name__)
 
@@ -25,15 +26,17 @@ app.layout = html.Div(children=[
     Output('graph-time-series', 'figure'),
     Input('apply-button','n_clicks'))
 def update_graph(n_clicks):
-    N = np.random.randint(10,1000)
-    rng = pd.date_range('2019-01-01', freq='MS', periods=N)
-    df = pd.DataFrame(np.random.rand(N, 3), columns=['temp', 'depth', 'acceleration'], index=rng)
+    df = get_data()
+    # N = np.random.randint(10,1000)
+    # rng = pd.date_range('2019-01-01', freq='MS', periods=N)
+    # df = pd.DataFrame(np.random.rand(N, 3), columns=['temp', 'depth', 'acceleration'], index=rng)
 
     return px.line(df)
 
 @server.route("/dash")
 def my_dash_app():
     return app.index()
+
 
 if __name__ == "__main__":
     app.run_server()
