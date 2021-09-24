@@ -1,4 +1,4 @@
-FROM python:3.6-slim-buster
+FROM python:2.7
 # Copy source files
 COPY . .
 # Install our deps

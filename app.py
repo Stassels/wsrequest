@@ -1,13 +1,17 @@
 from flask import Flask
 import dash
-from dash import html
-from dash import dcc
+try:
+    from dash import html
+    from dash import dcc
+except ImportError:
+    import dash_html_components as html
+    import dash_core_components as dcc
 from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 import numpy as np
 
-from ws_request_luncher import get_data
+# from ws_request_luncher import get_data
 
 server = Flask(__name__)
 
